@@ -17,7 +17,7 @@ comments here
 %    
 
 %%%%% email
-\usepackage[hidelinks]{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 \newcommand*{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}} } 
 
 
@@ -25,11 +25,8 @@ comments here
 \newcommand*{\rightSide}[1]{\hspace*{\fill}#1} 
 
 % other ways - affects line vertical distance
-\cm{
-
-\hspace*{\fill}#1
-\null\hfill#1
-\hspace*{0pt}\hfill#1
-\mbox{}\hfill#1
-
-}
+\newcommand*{\rightSideT}[1]{\hfill#1} 
+\newcommand*{\rightSideTT}[1]{\hspace*{\fill}#1} 
+\newcommand*{\rightSideTTT}[1]{\null\hfill#1} 
+\newcommand*{\rightSideTTTT}[1]{\hspace*{0pt}\hfill#1} 
+\newcommand*{\rightSideTTTTT}[1]{\mbox{}\hfill#1} 
