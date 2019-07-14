@@ -15,10 +15,12 @@ comments here
 %%%%% email
 \RequirePackage[hidelinks]{hyperref}
 \newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}} } 
-
+% \email{email}
 
 %%%% right sided text
 \newcommand{\rightSide}[1]{\hspace*{\fill}#1} 
+
+% \rightSide{text}
 
 % other ways - affects line vertical distance
 \newcommand{\rightSideT}[1]{\hfill#1} 
@@ -39,7 +41,7 @@ comments here
 %%% code inline
 \newcommand{\codeIn}[2]{\mint{#1}{#2}} 
 
-% \codeIn{matlab}{ code here}
+% \codeIn{matlab}{code here}
 
 %%%% Code
 \newenvironment{code}[1]
@@ -58,9 +60,9 @@ comments here
  {\end{minted}
  }
  
-% \begin{codeCap}{lang}
+% \begin{code}{lang}
 % code here
-% \end{codeCap}
+% \end{code}
 
 
 %%%% code with caption
