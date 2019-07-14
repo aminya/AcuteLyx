@@ -1,10 +1,6 @@
-%%Identification
-%%The package identifies itself and the LaTeX version needed
-\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{Amin}[2019/07/14 Amin most used commands]
 
-
-% Commands
+%%%%%%%%%% Commands %%%%%%%%%%%%%
 
 %%%%% block comment
 \newcommand{\cm}[1]{}  % multi-line block comment
@@ -18,15 +14,104 @@ comments here
 
 %%%%% email
 \RequirePackage[hidelinks]{hyperref}
-\newcommand*{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}} } 
+\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}} } 
 
 
 %%%% right sided text
-\newcommand*{\rightSide}[1]{\hspace*{\fill}#1} 
+\newcommand{\rightSide}[1]{\hspace*{\fill}#1} 
 
 % other ways - affects line vertical distance
-\newcommand*{\rightSideT}[1]{\hfill#1} 
-\newcommand*{\rightSideTT}[1]{\hspace*{\fill}#1} 
-\newcommand*{\rightSideTTT}[1]{\null\hfill#1} 
-\newcommand*{\rightSideTTTT}[1]{\hspace*{0pt}\hfill#1} 
-\newcommand*{\rightSideTTTTT}[1]{\mbox{}\hfill#1} 
+\newcommand{\rightSideT}[1]{\hfill#1} 
+\newcommand{\rightSideTT}[1]{\hspace*{\fill}#1} 
+\newcommand{\rightSideTTT}[1]{\null\hfill#1} 
+\newcommand{\rightSideTTTT}[1]{\hspace*{0pt}\hfill#1} 
+\newcommand{\rightSideTTTTT}[1]{\mbox{}\hfill#1} 
+
+%%%%%%%%%% Environments %%%%%%%%%%%%%
+
+%%%%%% code snippet
+% https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
+\RequirePackage{xcolor}
+\definecolor{LightGray}{gray}{0.9}
+
+\RequirePackage{minted}
+
+%%% code inline
+\newcommand{\codeIn}[2]{\mint{#1}{#2}} 
+
+% \codeIn{matlab}{ code here}
+
+%%%% Code
+\newenvironment{code}[1]
+ {
+ \VerbatimEnvironment
+  \begin{minted}[
+    frame=lines,           % lines below/above the code
+    framesep=2mm,
+    % baselinestretch=1.2, % distance between lines
+    % bgcolor=LightGray,   % back ground color
+    fontfamily=courier,
+   % fontsize=\scriptsize, % \footnotesize \large
+   % xleftmargin=21pt
+    % linenos,             % code line number
+    ]{#1}}
+ {\end{minted}
+ }
+ 
+% \begin{codeCap}{lang}
+% code here
+% \end{codeCap}
+
+
+%%%% code with caption
+\newenvironment{codeCap}[3]
+ {
+ \VerbatimEnvironment
+  \begin{listing}
+  \caption{#2}\label{#3}
+  \begin{minted}[
+    frame=lines,           % lines below/above the code
+    framesep=2mm,
+    % baselinestretch=1.2, % distance between lines
+    % bgcolor=LightGray,   % back ground color
+    fontfamily=courier,
+   % fontsize=\scriptsize, % \footnotesize \large
+   % xleftmargin=21pt
+    % linenos,             % code line number
+    ]{#1}}
+ {\end{minted}
+ \end{listing}
+ }
+ 
+% \begin{codeCap}{lang}{caption}{Code:label}
+% code here
+% \end{codeCap}
+% label is for refering
+
+
+%%%%%% Code File
+\newcommand{\codeFile}[2]{\inputminted{#1}{#2}} 
+
+% \codeFile{language}{filename with extension}
+
+%%%%%% Code File with caption
+\newenvironment{codeFileCap}[4]
+ {
+ \VerbatimEnvironment
+  \begin{listing}
+  \caption{#3}\label{#4}
+  \inputminted[
+    frame=lines,           % lines below/above the code
+    framesep=2mm,
+    % baselinestretch=1.2, % distance between lines
+    % bgcolor=LightGray,   % back ground color
+    fontfamily=courier,
+   % fontsize=\scriptsize, % \footnotesize \large
+   % xleftmargin=21pt
+    % linenos,             % code line number
+    ]{#1}{#2}
+    } 
+    { \end{listing}}
+    
+% \begin{codeFileCap}{lang}{filename with extension}{caption}{Code:label}
+% \end{codeCap}
