@@ -1,0 +1,35 @@
+%%Identification
+%%The package identifies itself and the LaTeX version needed
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Amin}[2019/07/14 Amin most used commands]
+
+
+% Commands
+
+%%%%% block comment
+\newcommand{\cm}[1]{}  % multi-line block comment
+
+% usage:
+%
+\cm{
+comments here
+}
+%    
+
+%%%%% email
+\usepackage[hidelinks]{hyperref}
+\newcommand*{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}} } 
+
+
+%%%% right sided text
+\newcommand*{\rightSide}[1]{\hspace*{\fill}#1} 
+
+% other ways - affects line vertical distance
+\cm{
+
+\hspace*{\fill}#1
+\null\hfill#1
+\hspace*{0pt}\hfill#1
+\mbox{}\hfill#1
+
+}
