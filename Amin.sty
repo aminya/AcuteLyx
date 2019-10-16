@@ -1,11 +1,14 @@
 \ProvidesPackage{Amin}[2019/07/14 Amin most used commands]
 
+
+\RequirePackage[dvipsnames,table,xcdraw]{xcolor}
+
 %%%%%%%%%% Commands %%%%%%%%%%%%%
 
 %%%%% block comment
 \newcommand{\cm}[1]{}  % multi-line block comment
 
-% usage:
+% example:
 %
 \cm{
 comments here
@@ -13,14 +16,75 @@ comments here
 %    
 
 %%%%% email
-\RequirePackage[hidelinks]{hyperref}
-\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}} } 
+% example:
 % \email{email}
+\RequirePackage{fontawesome} % http://mirrors.ctan.org/fonts/fontawesome/doc/fontawesome.pdf
+
+\RequirePackage{hyperref}
+\RequirePackage[dvipsnames]{xcolor}
+
+% Color setup for the links
+\hypersetup{
+    colorlinks=true, % hyperlinks will be coloured
+    linkcolor=blue, % hyperlink text will be green
+    urlcolor=blue,
+    filecolor=magenta,      
+    linkbordercolor=blue,% hyperlink border will be red
+    allbordercolors={0 0 0},
+    pdfborderstyle={/S/U/W 1}, % underline links instead of boxes
+    % linkbordercolor=blue,       % color of internal links
+    % citebordercolor=blue,     % color of links to bibliography
+    % filebordercolor=blue,   % color of file links
+    % urlbordercolor=blue        % color of external links
+}
+%
+\newcommand{\email}[1]{\faEnvelopeO \reps{1} \href{mailto:#1}  { \underline{\texttt{#1}} }   }
+
+%%%%%%% link
+% url with description
+% example:
+% \link{link description}{url itself}
+\newcommand{\link}[2]{    \href{#1}  { \underline{\texttt{#2}} }   }
+
+%%%%%%% link with Icon
+% example:
+% \link{icon}{link description}{url itself}
+\newcommand{\linkIcon}[3]{ #1 \space  \href{#2}  { \underline{\texttt{#3}} }   }
+
+%%%%%%% Website
+% example:
+% \web{website url}
+\newcommand{\web}[1]{\linkIcon{\faGlobe}{#1}{Page}}
+
+%%%%%%% Github
+% example:
+% \github{website url}
+\newcommand{\github}[2]{\linkIcon{\faGithub}{#1}{#2}}
+
+%%%%%%% Linkedin
+% example:
+% \linkedin{website url}
+\newcommand{\linkedin}[1]{\linkIcon{\faLinkedin}{#1}{}}
+
+%%%%% url
+% url without description
+% example:
+\newcommand{\linkto}[1]{\faLink \reps{1}\href{#1}  { \underline{\texttt{Link}} }   }
+
+\newcommand{\pdf}[1]{\faFilePdfO \reps{1}\href{#1}  { \underline{\texttt{Link}} }   }
+
+%%%% Expert Icon
+\newcommand{\ex}{\includegraphics[width=4mm]{expert.png}}
+
+%%%% Bullet Icon
+\newcommand{\bul}{\textbullet \reps{1}}
+
 
 %%%% right sided text
-\newcommand{\rightSide}[1]{\hspace*{\fill}#1} 
-
+% example:
 % \rightSide{text}
+
+\newcommand{\rightSide}[1]{\hspace*{\fill}#1} 
 
 % other ways - affects line vertical distance
 \newcommand{\rightSideT}[1]{\hfill#1} 
@@ -29,21 +93,156 @@ comments here
 \newcommand{\rightSideTTTT}[1]{\hspace*{0pt}\hfill#1} 
 \newcommand{\rightSideTTTTT}[1]{\mbox{}\hfill#1} 
 
+%%%%% Char repeater - rep
+% example:
+% \rep{3}{A}
+% \rep[-]{4}{x}
+\RequirePackage{xparse}
+
+\ExplSyntaxOn
+\DeclareExpandableDocumentCommand{\rep}{O{}mm}
+ {
+  \int_compare:nT { #2 > 0 }
+   {
+    #3 \prg_replicate:nn { #2 - 1 } { #1#3 }
+   }
+ }
+\ExplSyntaxOff
+
+%%%%%%% Space repeater - reps
+% example:
+% \reps{10}
+\newcommand{\reps}[1]{\rep{#1}{\space}} 
+
+
+%%%%%%% bold item - bitem
+% Item with 1st phrase being Bold
+% example:
+% \bolditem{bold phrase}{rest of the text}
+\newcommand{\bitem}[2]{\item{\textbf{#1} #2}}
+
+%%%%%%% sub Item
+% 1 quick sub item 
+% example:
+% \begin{itemize}
+% \subItem{a sub item}
+% \end{itemize}
+
+\newcommand{\subItem}[1]{\begin{itemize} \item #1 \vspace{-2.5pt} \end{itemize}}
+
+
+%%%%%%% rect Head
+% title bar - A rectangle which contains the title
+% example:
+% \resheading{title here}
+
+\RequirePackage{framed}
+\RequirePackage[dvipsnames]{xcolor}
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bar
+\definecolor{shadecolor}{gray}{1}  % Outer background color of title bar (0 = black, 1 = white/invisible)
+\definecolor{LightGray}{gray}{0.9} % Inner background color of title bar
+
+
+\newcommand{\rectHead}[1]{\vspace{-10pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{1pt}\fcolorbox{LightGray}{LightGray}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-8pt}
+}
+
+
+
+%%%%%%% sub Tab
+% 4 element table like text, with top left item being bold
+% example:
+% \ressubheading{Title}{right description}{bottom left description}{bottom right description} 
+% can be used inside an itemize after \item
+
+% \begin{itemize}
+% \item \ressubheading{Title}{right description}{bottom left description}{bottom right description} 
+% \end{itemize}
+
+\newcommand{\subTab}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textsl{#4} \\
+\end{tabular*}\vspace{-5pt}}
+
+
+%%%%%%%%% Changing bullet point to - in items globally
+% insert at the before the document starts
+
+% \renewcommand{\labelitemi}{$-}
+
+% instead of star you find more symbols in:
+% http://www.ctan.org/tex-archive/info/symbols/comprehensive/    
+
+
+
+%%%%%%%% Justifying Itemize
+% example:
+% after begin{itemize} or similar commands use : \justifying 
+\RequirePackage{ragged2e}
+
+%%%%% Color Names
+\RequirePackage[dvipsnames]{xcolor}
+
+%%%%%%%% Numbered items
+%\begin{enumerate}
+% \item First item
+% \item Second item
+%\end{enumerate}
+
+
+%%%%% List items
+% example:
+% \begin{itemize}[label={--}]
+%     \item 
+% \end{itemize}
+% \RequirePackage{enumitem} % http://ctan.org/pkg/enumitem
+
+
+%%%%% Tags
+\RequirePackage{tikz}
+
+% Create a tag
+% Usage: \cvtag{<tag label>}
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base,draw=Black!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
+}
+
+\newcommand{\tags}[1]{\footnotesize{\foreach \n in {#1}{\cvtag{\n}}}} 
+
+
+%%%%% Tables:
+% https://www.tablesgenerator.com/latex_tables
+\RequirePackage{booktabs}
+
+
+
 %%%%%%%%%% Environments %%%%%%%%%%%%%
 
-%%%%%% code snippet
+%%%%%% code snippets
+% example:
+% \codeIn{matlab}{code here}
+
 % https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
-\RequirePackage{xcolor}
-\definecolor{LightGray}{gray}{0.9}
+\RequirePackage[dvipsnames]{xcolor}
+\definecolor{LightGray}{gray}{0.93} % background color of codes
 
 \RequirePackage{minted}
 
-%%% code inline
+%%% code inline - codeIn
 \newcommand{\codeIn}[2]{\mint{#1}{#2}} 
 
-% \codeIn{matlab}{code here}
 
-%%%% Code
+%%%% Code - code
+% example:
+% \begin{code}{lang}
+% code here
+% \end{code}
+
 \newenvironment{code}[1]
  {
  \VerbatimEnvironment
@@ -60,12 +259,16 @@ comments here
  {\end{minted}
  }
  
-% \begin{code}{lang}
+
+
+
+%%%% code with caption - codeCap
+% example:
+% \begin{codeCap}{lang}{caption}{Code:label}
 % code here
-% \end{code}
+% \end{codeCap}
+% label is for refering
 
-
-%%%% code with caption
 \newenvironment{codeCap}[3]
  {
  \VerbatimEnvironment
@@ -85,18 +288,21 @@ comments here
  \end{listing}
  }
  
-% \begin{codeCap}{lang}{caption}{Code:label}
-% code here
-% \end{codeCap}
-% label is for refering
 
 
-%%%%%% Code File
-\newcommand{\codeFile}[2]{\inputminted{#1}{#2}} 
 
+%%%%%% Code File - codeFile
+% example:
 % \codeFile{language}{filename with extension}
 
-%%%%%% Code File with caption
+\newcommand{\codeFile}[2]{\inputminted{#1}{#2}} 
+
+
+%%%%%% Code File with caption - codeFileCap
+% example:
+% \begin{codeFileCap}{lang}{filename with extension}{caption}{Code:label}
+% \end{codeCap}
+
 \newenvironment{codeFileCap}[4]
  {
  \VerbatimEnvironment
@@ -114,6 +320,78 @@ comments here
     ]{#1}{#2}
     } 
     { \end{listing}}
-    
-% \begin{codeFileCap}{lang}{filename with extension}{caption}{Code:label}
-% \end{codeCap}
+
+%%%%%% Auto Multi Column Items -  autoMulCol
+% example:
+
+\RequirePackage{etoolbox} % \preto
+\RequirePackage{refcount} % multiple commands
+\RequirePackage{multicol} % \multicols
+
+% required counters
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+
+% environment itself
+\newenvironment{autoMulCol}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+
+%%%%%%%%%%% Quick Table of Content Items
+% example:
+% \begin{qtoc}
+%     \qtem{left side text 1}{right side text 1}
+%     \qtem{left side text 2}{right side text 2}
+% \end{qtoc}
+
+\RequirePackage{tocloft}
+
+% qtoc environment
+\newenvironment{qtoc}{ 
+    \begin{center}
+     \begin{minipage}{6.5in}
+}{
+    \end{minipage}
+    \end{center}    
+}
+
+% new qtoc item
+\newcommand{\qtem}[2]{#1 \dotfill  #2\\}
+
+% \RequirePackage{multicol} % \multicolumn
+
+% % qtoc environment
+% \newenvironment{qtoc}{ 
+%     % \VerbatimEnvironment
+%     \begin{center}
+%     \begin{tabular*}{7in}{l 1@{\extracolsep{\fill}}r}
+% }{
+% 	\end{tabular*}
+%     \end{center}    
+% }
+
+% % new qtoc item
+% \newcommand{\qtem}[2]{\multicolumn{2}{c}{#1 \cftdotfill{\cftdotsep}#2} \vspace{1pt} \\
+% 	\vphantom{E}}
