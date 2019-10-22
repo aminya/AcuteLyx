@@ -44,12 +44,12 @@ comments here
 % url with description
 % example:
 % \link{link description}{url itself}
-\newcommand{\link}[2]{    \href{#1}  { \underline{\texttt{#2}} }   }
+\newcommand{\link}[2]{\href{#1}{\underline{\texttt{#2}}}}
 
 %%%%%%% link with Icon
 % example:
 % \link{icon}{link description}{url itself}
-\newcommand{\linkIcon}[3]{ #1 \space  \href{#2}  { \underline{\texttt{#3}} }   }
+\newcommand{\linkIcon}[3]{#1\space \href{#2}  {\underline{\texttt{#3}}}}
 
 %%%%%%% Website
 % example:
@@ -129,7 +129,11 @@ comments here
 % \end{itemize}
 
 \newcommand{\subItem}[1]{\begin{itemize} \item #1 \vspace{-2.5pt} \end{itemize}}
+\newcommand{\subItemm}[1]{\begin{itemize} \addtolength{\itemindent}{-0.5cm} \item #1 \vspace{-2.5pt} \end{itemize}}
 
+%%%%% Fake item
+\newcommand{\fakeItemb}[1]{\vspace{4pt} \\\bul #1} % bullet
+\newcommand{\fakeItemh}[1]{\vspace{4pt} \\- #1} % hyphen
 
 %%%%%%% rect Head
 % title bar - A rectangle which contains the title
