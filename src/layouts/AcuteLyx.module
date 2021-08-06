@@ -98,3 +98,28 @@ InsetLayout AdjustBox
   EndFont
 End
 
+
+InsetLayout TableDiag
+  LyxType custom
+  Preamble
+	\usepackage{diagbox}
+  EndPreamble
+  LyXType custom
+  LatexType command
+  Argument 1
+	  LabelString	"left"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  Argument 2
+	  LabelString	"right"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  LabelType		Static
+  LabelString	"TableDiag"
+    LabelFont
+    Color		Green
+  EndFont
+End
+
