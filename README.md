@@ -4,10 +4,12 @@ A collection of environments, shortcuts, toolbars, packages, etc. to enhance [Ly
 
 # Installation
 
-Open terminal as Administrator and run the following command. Then from the Lyx Toolbar select `Tools > Reconfigure`. When reconfiguration is done, hit OK, and restart Lyx.
+- Open terminal as Administrator and run the following command.
 ```
 python ./installation.py
 ```
+- Then from the Lyx Toolbar select `Tools > Reconfigure`.
+- When reconfiguration is done, hit OK, and restart Lyx.
 
 **Node: the installation script is only tested on Windows.** Pull requests for supporting other OS are welcome.
 
@@ -36,6 +38,18 @@ convert to numbered math | `CTRL+ALT+M`
 text in math (\\mbox)    | `ALT-T`
 fractions (\\frac)       | `ALT-F`
 brackets                 | `ALT+M+[,{,(`
+
+# Using The Environments
+
+- Select `Documents > Settings` from the Lyx Toolbar,
+- Select `Modules`. Then select `AcuteLyx`
+- Press `Add` and then `Apply` to load the module. Do the same thing for `AcuteLyx Headers/Footers`
+
+![loading-modules](images/loading-modules.png)
+
+The added environments will appear under `Insert > Custom Insets`
+
+![Custom Insets](images/custom-insets.png)
 
 # Uninstallation
 
