@@ -152,3 +152,21 @@ InsetLayout OneColumn
   EndFont
   LabelString	"OneColumn"
 End
+
+InsetLayout FootNoteL
+  LyxType customine
+  Preamble
+	% adds line above footnote
+	\makeatletter
+	\def\footnoterule{\kern-3\p@
+	  \hrule \@width 2in \kern 2.6\p@} % the \hrule is .4pt high
+	\makeatother
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"FootNoteLine"
+End
