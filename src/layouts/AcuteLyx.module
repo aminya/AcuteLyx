@@ -170,3 +170,25 @@ InsetLayout FootNoteL
   EndFont
   LabelString	"FootNoteLine"
 End
+
+InsetLayout ReduceIte
+  LyxType custommize
+  Preamble
+	%% Reduce itemize size
+	\usepackage{setspace}
+	\let\olditemize=\itemize
+	\def\itemize{
+	    \olditemize
+	    \setlength{\itemsep}{-0.0ex}
+	    \setstretch{0.8}
+	    }
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"ReduceItemize"
+End
+
