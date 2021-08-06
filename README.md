@@ -1,6 +1,15 @@
-# Amin-Latex-Package
-My most used latex commands. Include sty in your Latex projects.
+# AcuteLyx (AcuteLatex)
 
+A collection of environments, shortcuts, toolbars, packages, etc. to enhance [Lyx](https://www.lyx.org/Download#toc3).
+
+# Installation
+
+Open terminal as Administrator and run the following command
+```
+python ./installation.py
+```
+
+**Node: the installation script is only tested on Windows.** Pull requests for supporting other OS are welcome.
 
 # Lyx Shortcuts
 
@@ -27,3 +36,10 @@ convert to numbered math | `CTRL+ALT+M`
 text in math (\\mbox)    | `ALT-T`
 fractions (\\frac)       | `ALT-F`
 brackets                 | `ALT+M+[,{,(`
+
+# Uninstallation
+
+Open terminal as Administrator and run the following command
+```
+python ./uninstallation.py
+```
