@@ -192,3 +192,22 @@ InsetLayout ReduceIte
   LabelString	"ReduceItemize"
 End
 
+InsetLayout ReduceEnu
+  LyxType custommerate
+  Preamble
+	%% Reduce enumerate env size
+	\let\oldenumerate=\enumerate
+	\def\enumerate{
+	    \oldenumerate
+	    \setlength{\itemsep}{-0.0ex}
+	    \setstretch{0.8}
+	    }
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"ReduceEnumerate"
+End
