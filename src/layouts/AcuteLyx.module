@@ -40,3 +40,24 @@ Style Abstract
   EndFont
 End
 
+
+Style ChapterAbstract
+  LatexName	ChapterAbstract
+  Preamble
+	\newenvironment{ChapterAbstract}[1]{
+		\begin{center}\normalfont\textbf{Abstract}\end{center}
+		\begin{quotation}
+	}{
+		\end{quotation}
+		\vspace{#1}
+	}
+  EndPreamble
+  LatexType Environment
+  Argument 1
+	  LabelString	"vspace"
+	  Mandatory	1
+	  DefaultArg	"1cm"
+	  AutoInsert	1
+  EndArgument
+End
+
