@@ -123,3 +123,19 @@ InsetLayout TableDiag
   EndFont
 End
 
+
+InsetLayout Beautiful
+  LyxType customCitation
+  Preamble
+	%\usepackage[resetlabels,labeled]{multibib}
+	\usepackage[nocompress]{cite} % beautiful citation
+	\usepackage{doi}
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+End
+
