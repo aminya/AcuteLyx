@@ -1,0 +1,236 @@
+#\DeclareLyXModule{AcuteLyx}
+#DescriptionBegin
+# AcuteLyx module
+# Commands will appear under Insert > Custom Inset (because of LyXType custom)
+#DescriptionEnd
+#
+#Author: Amin Yahyaabadi <aminyahyaabadi74@gmail.com>
+
+
+Preamble
+% for subfigures/subtables
+%\usepackage{ieeetrantools}
+
+%Colon after year
+%\DeclareDelimFormat[bib,biblist]{nametitledelim}{\addcolon\space}
+
+%Year and parantheses in bold
+ % <=========================== date
+
+%% The new list's label is "New" and will be titled "The other list".
+%% To put cites into this list, use \citeNew.
+%\newcites{Fuzzy Theory}{The other list}
+%\newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
+
+EndPreamble
+
+Style Abstract
+  LatexName	Abstract
+  Preamble
+	\newenvironment{Abstract}{
+		\chapter*{Abstract}
+	}{
+	}
+  EndPreamble
+  LatexType Environment
+  LabelType		Above
+  LabelString "Abstract"
+  LabelFont
+    Size Huge
+  EndFont
+End
+
+
+Style ChapterAbstract
+  LatexName	ChapterAbstract
+  Preamble
+	\newenvironment{ChapterAbstract}[1]{
+		\begin{center}\normalfont\textbf{Abstract}\end{center}
+		\begin{quotation}
+	}{
+		\end{quotation}
+		\vspace{#1}
+	}
+  EndPreamble
+  LatexType Environment
+  Argument 1
+	  LabelString	"vspace"
+	  Mandatory	1
+	  DefaultArg	"1cm"
+	  AutoInsert	1
+  EndArgument
+End
+
+
+InsetLayout SmallFigure
+  LyxType custom
+  Preamble
+	\usepackage[caption=false,font=footnotesize]{subfig}
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"SmallFigure"
+    LabelFont
+    Color		Green
+  EndFont
+End
+
+InsetLayout AdjustBox
+  LyxType custom
+  Preamble
+	\usepackage[export]{adjustbox}
+  EndPreamble
+  LatexType Environment
+  Argument 1
+	  LabelString	"value"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  Argument 2
+	  LabelString	"content"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  LabelType		Static
+  LabelString	"AdjustBoxExport"
+  LabelFont
+    Color		Green
+  EndFont
+End
+
+
+InsetLayout TableDiag
+  LyxType custom
+  Preamble
+	\usepackage{diagbox}
+  EndPreamble
+  LyXType custom
+  LatexType command
+  Argument 1
+	  LabelString	"left"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  Argument 2
+	  LabelString	"right"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  LabelType		Static
+  LabelString	"TableDiag"
+    LabelFont
+    Color		Green
+  EndFont
+End
+
+
+InsetLayout Beautiful
+  LyxType customCitation
+  Preamble
+	%\usepackage[resetlabels,labeled]{multibib}
+	\usepackage[nocompress]{cite} % beautiful citation
+	\usepackage{doi}
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+End
+
+InsetLayout OneColumn
+  LyxType custom
+  Preamble
+	\onecolumn
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"OneColumn"
+End
+
+InsetLayout FootNoteL
+  LyxType customine
+  Preamble
+	% adds line above footnote
+	\makeatletter
+	\def\footnoterule{\kern-3\p@
+	  \hrule \@width 2in \kern 2.6\p@} % the \hrule is .4pt high
+	\makeatother
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"FootNoteLine"
+End
+
+InsetLayout ReduceIte
+  LyxType custommize
+  Preamble
+	%% Reduce itemize size
+	\usepackage{setspace}
+	\let\olditemize=\itemize
+	\def\itemize{
+	    \olditemize
+	    \setlength{\itemsep}{-0.0ex}
+	    \setstretch{0.8}
+	    }
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"ReduceItemize"
+End
+
+InsetLayout ReduceEnu
+  LyxType custommerate
+  Preamble
+	%% Reduce enumerate env size
+	\let\oldenumerate=\enumerate
+	\def\enumerate{
+	    \oldenumerate
+	    \setlength{\itemsep}{-0.0ex}
+	    \setstretch{0.8}
+	    }
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"ReduceEnumerate"
+End
+
+InsetLayout ReduceTOC
+  LyxType custom
+  Preamble
+	% condence TOC
+	\renewcommand\tableofcontents{
+	        {\LARGE\center{TABLE OF CONTENTS}}
+	        \par
+	        \begin{footnotesize}
+	        \addtolength{\parskip}{-0.5ex}
+	        \@starttoc{toc}%
+	        \addtolength{\parskip}{+0.5ex}
+	        \end{footnotesize}
+	        }
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"ReduceTOC"
+End
