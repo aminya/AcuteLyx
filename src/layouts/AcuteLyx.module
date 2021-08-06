@@ -24,3 +24,19 @@ Preamble
 
 EndPreamble
 
+Style Abstract
+  LatexName	Abstract
+  Preamble
+	\newenvironment{Abstract}{
+		\chapter*{Abstract}
+	}{
+	}
+  EndPreamble
+  LatexType Environment
+  LabelType		Above
+  LabelString "Abstract"
+  LabelFont
+    Size Huge
+  EndFont
+End
+
