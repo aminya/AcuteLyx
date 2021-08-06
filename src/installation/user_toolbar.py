@@ -60,3 +60,29 @@ def add_user_toolbar():
     print(f"""Installed the user toolbar at {usertoolbars}
     If you want to modify the tooblar, change {usertoolbars_src}, and rerun this script""")
 
+
+def remove_user_toolbar():
+    print("Uninstalling the user toolbar...")
+
+    shouldAddUserToolbar = False
+    txt: str
+    with open(default_ui, "rt") as file:
+        txt = file.read()
+        if (txt.find('"user" "on,top"') != -1):
+            txt = txt.replace('Toolbars\n\t"standard" "on,top"\n\t"user" "on,top"',
+                              'Toolbars\n\t"standard" "on,top"')
+            shouldAddUserToolbar = True
+        else:
+            print("The user toolbar is not added to the settings")
+
+    if shouldAddUserToolbar:
+        with open(default_ui, "wt") as file:
+            # add toolbar to the settings
+            file.write(txt)
+            print(
+                f"Removed the user toolbar from the settings at {default_ui}")
+
+    if os.path.isfile(usertoolbars):
+        os.remove(usertoolbars)
+
+    print(f"Uninstalled the user toolbar at {usertoolbars}")
