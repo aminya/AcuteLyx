@@ -4,7 +4,7 @@ A collection of environments, shortcuts, toolbars, packages, etc. to enhance [Ly
 
 # Installation
 
-Open terminal as Administrator and run the following command
+Open terminal as Administrator and run the following command. Then from the Lyx Toolbar select `Tools > Reconfigure`. When reconfiguration is done, hit OK, and restart Lyx.
 ```
 python ./installation.py
 ```
@@ -39,7 +39,7 @@ brackets                 | `ALT+M+[,{,(`
 
 # Uninstallation
 
-Open terminal as Administrator and run the following command
+Open terminal as Administrator and run the following command. Then from the Lyx Toolbar select `Tools > Reconfigure`. When reconfiguration is done, hit OK, and restart Lyx.
 ```
 python ./uninstallation.py
 ```
