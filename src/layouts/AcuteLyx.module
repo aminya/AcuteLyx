@@ -1,0 +1,26 @@
+#\DeclareLyXModule{AcuteLyx}
+#DescriptionBegin
+# AcuteLyx module
+# Commands will appear under Insert > Custom Inset (because of LyXType custom)
+#DescriptionEnd
+#
+#Author: Amin Yahyaabadi <aminyahyaabadi74@gmail.com>
+
+
+Preamble
+% for subfigures/subtables
+%\usepackage{ieeetrantools}
+
+%Colon after year
+%\DeclareDelimFormat[bib,biblist]{nametitledelim}{\addcolon\space}
+
+%Year and parantheses in bold
+ % <=========================== date
+
+%% The new list's label is "New" and will be titled "The other list".
+%% To put cites into this list, use \citeNew.
+%\newcites{Fuzzy Theory}{The other list}
+%\newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
+
+EndPreamble
+
