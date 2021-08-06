@@ -211,3 +211,26 @@ InsetLayout ReduceEnu
   EndFont
   LabelString	"ReduceEnumerate"
 End
+
+InsetLayout ReduceTOC
+  LyxType custom
+  Preamble
+	% condence TOC
+	\renewcommand\tableofcontents{
+	        {\LARGE\center{TABLE OF CONTENTS}}
+	        \par
+	        \begin{footnotesize}
+	        \addtolength{\parskip}{-0.5ex}
+	        \@starttoc{toc}%
+	        \addtolength{\parskip}{+0.5ex}
+	        \end{footnotesize}
+	        }
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"BeautifulCitation"
+    LabelFont
+    Color		Green
+  EndFont
+  LabelString	"ReduceTOC"
+End
