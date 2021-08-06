@@ -75,3 +75,26 @@ InsetLayout SmallFigure
   EndFont
 End
 
+InsetLayout AdjustBox
+  LyxType custom
+  Preamble
+	\usepackage[export]{adjustbox}
+  EndPreamble
+  LatexType Environment
+  Argument 1
+	  LabelString	"value"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  Argument 2
+	  LabelString	"content"
+	  Mandatory		1
+	  AutoInsert	1
+  EndArgument
+  LabelType		Static
+  LabelString	"AdjustBoxExport"
+  LabelFont
+    Color		Green
+  EndFont
+End
+
