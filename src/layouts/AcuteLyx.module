@@ -61,3 +61,17 @@ Style ChapterAbstract
   EndArgument
 End
 
+
+InsetLayout SmallFigure
+  LyxType custom
+  Preamble
+	\usepackage[caption=false,font=footnotesize]{subfig}
+  EndPreamble
+  LatexType Environment
+  LabelType		Static
+  LabelString	"SmallFigure"
+    LabelFont
+    Color		Green
+  EndFont
+End
+
