@@ -27,3 +27,18 @@ def add_layouts():
     print(f"""Installed the user layouts at {layouts}
     If you want to modify the layouts, change {layouts_src}, and rerun this script""")
 
+
+def remove_layouts():
+    print("Uninstalling the user layouts...")
+
+    layouts = os.path.join(find_lyx.lyx_data_path, "layouts")
+    layouts_src = os.path.join(p.src_path, "layouts")
+
+    layouts_src_content = os.listdir(layouts_src)
+    layouts_content = os.listdir(layouts)
+    for file in layouts_src_content:
+        if file in layouts_content:
+            filepath = os.path.join(layouts, file)
+            os.remove(filepath)
+
+    print(f"Uninstalled the user layouts at {layouts}")
