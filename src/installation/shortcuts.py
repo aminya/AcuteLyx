@@ -26,3 +26,13 @@ def add_shortcuts():
     print(f"""Installed the user shorts at {user_bind}
     If you want to modify the shortcuts, change {user_bind_src}, and rerun this script""")
 
+
+def remove_shortcuts():
+    print("Uninstalling the user shortcuts...")
+
+    user_bind = os.path.join(find_lyx.lyx_data_path, "bind", "user.bind")
+
+    if os.path.isfile(user_bind):
+        os.remove(user_bind)
+
+    print(f"Uninstalled the user shortcuts at {user_bind}")
