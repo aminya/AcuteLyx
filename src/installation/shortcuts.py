@@ -21,7 +21,8 @@ def add_shortcuts():
     if os.path.isfile(user_bind):
         shutil.copy(user_bind, user_bind_back)
         os.remove(user_bind)
-        shutil.copy(user_bind_src, user_bind)
+
+    shutil.copy(user_bind_src, user_bind)
 
     print(f"""Installed the user shortcuts at {user_bind}
     If you want to modify the shortcuts, change {user_bind_src}, and re-run this script""")
