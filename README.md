@@ -35,8 +35,8 @@ inline math              | `CTRL+M`
 standalone math          | `CTRL+SHIFT+M`
 numbered math            | `CTRL+ALT+N`
 convert to numbered math | `CTRL+ALT+M`
-text in math (\\mbox)    | `ALT-T`
-fractions (\\frac)       | `ALT-F`
+text in math (\\mbox)    | `CTRL+ALT-T`
+fractions (\\frac)       | `CTRL+ALT-F`
 brackets                 | `ALT+M+[,{,(`
 
 # Using The Environments
