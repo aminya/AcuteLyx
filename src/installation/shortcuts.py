@@ -23,8 +23,8 @@ def add_shortcuts():
         os.remove(user_bind)
         shutil.copy(user_bind_src, user_bind)
 
-    print(f"""Installed the user shorts at {user_bind}
-    If you want to modify the shortcuts, change {user_bind_src}, and rerun this script""")
+    print(f"""Installed the user shortcuts at {user_bind}
+    If you want to modify the shortcuts, change {user_bind_src}, and re-run this script""")
 
 
 def remove_shortcuts():

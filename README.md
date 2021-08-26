@@ -4,14 +4,14 @@ A collection of environments, shortcuts, toolbars, packages, etc. to enhance [Ly
 
 # Installation
 
-- Open terminal as Administrator and run the following command.
+- Open the terminal as Administrator and run the following command.
 ```
 python ./installation.py
 ```
-- Then from the Lyx Toolbar select `Tools > Reconfigure`.
-- When reconfiguration is done, hit OK, and restart Lyx.
+- Then, from the Lyx toolbar, select `Tools > Reconfigure`.
+- When reconfiguration is done, hit the OK, and restart Lyx.
 
-**Node: the installation script is only tested on Windows.** Pull requests for supporting other OS are welcome.
+**Note: the installation script is only tested on Windows.** Pull requests for supporting other OS are welcome.
 
 # Lyx Shortcuts
 
@@ -53,7 +53,7 @@ The added environments will appear under `Insert > Custom Insets`
 
 # Uninstallation
 
-Open terminal as Administrator and run the following command. Then from the Lyx Toolbar select `Tools > Reconfigure`. When reconfiguration is done, hit OK, and restart Lyx.
+Open terminal as Administrator and run the following command. Then, from the Lyx toolbar, select `Tools > Reconfigure`. When reconfiguration is done, hit OK, and restart Lyx.
 ```
 python ./uninstallation.py
 ```

@@ -38,7 +38,7 @@ def add_user_toolbar():
             shouldAddUserToolbar = True
         else:
             print(
-                f"The user toolbar already added to the settings at {default_ui}")
+                f"The user toolbar is already added to the settings at {default_ui}")
 
     if shouldAddUserToolbar:
         with open(default_ui, "wt") as file:
@@ -58,7 +58,7 @@ def add_user_toolbar():
     shutil.copy(usertoolbars_src, usertoolbars)
 
     print(f"""Installed the user toolbar at {usertoolbars}
-    If you want to modify the tooblar, change {usertoolbars_src}, and rerun this script""")
+    If you want to modify the toolbar, change {usertoolbars_src}, and re-run this script""")
 
 
 def remove_user_toolbar():

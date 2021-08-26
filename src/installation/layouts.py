@@ -25,7 +25,7 @@ def add_layouts():
         shutil.copy(filepath_src, filepath)
 
     print(f"""Installed the user layouts at {layouts}
-    If you want to modify the layouts, change {layouts_src}, and rerun this script""")
+    If you want to modify the layouts, change {layouts_src}, and re-run this script""")
 
 
 def remove_layouts():
