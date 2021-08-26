@@ -24,7 +24,7 @@ add label (for figures, equations, etc.)   | `ALT-M`
 add citation                               | `ALT-C`
 add a reference to a figure/table/equation | `ALT-R`
 add hyperlink                              | `ALT-H`
-layout-paragraph                           | `CTRL-P`
+layout-paragraph                           | `ALT-P`
 dialog-show character                      | `CTRL-T`
 
 ## Math mode:

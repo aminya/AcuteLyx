@@ -5,7 +5,7 @@ Format 4
 
 \unbind "M-p space" "drop-layouts-choice"
 
-\bind "C-p" "layout-paragraph"
+\bind "M-p" "layout-paragraph"
 \bind "C-t" "dialog-show character"
 \bind "C-M-m" "command-sequence math-display; math-number-toggle;"
 \bind "M-t" "math-insert \\mbox"
