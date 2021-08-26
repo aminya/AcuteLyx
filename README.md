@@ -19,13 +19,13 @@ python ./installation.py
 
 Description                                | Shortcut
 -------------------------------------------|---------
+style the text (font, size, etc)           | `ALT-T`
+layout-paragraph                           | `ALT-P`
 add a new section/environment              | `ALT-S`
 add label (for figures, equations, etc.)   | `ALT-M`
 add citation                               | `ALT-C`
 add a reference to a figure/table/equation | `ALT-R`
 add hyperlink                              | `ALT-H`
-layout-paragraph                           | `ALT-P`
-dialog-show character                      | `CTRL-T`
 
 ## Math mode:
 
